@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Barlow";
+  src: url("../fonts/Barlow/Barlow-Regular.ttf");
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/Fraunces/Fraunces_144pt-Regular.ttf");
+}
+body {
+  background-color: #fdfcf7;
+}
+
+:global(a.active) {
+  color: rgb(51, 61, 75);
+}
+
+.site-header nav {
+  color: rgb(131, 136, 143);
+}
+.site-header nav a {
+  padding-block: 1px;
+  padding-inline: 6px;
+}
+.site-header nav a:hover {
+  color: rgb(51, 61, 75);
+}/*# sourceMappingURL=main.css.map */

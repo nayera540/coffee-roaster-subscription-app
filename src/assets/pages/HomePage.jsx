@@ -1,10 +1,9 @@
-import MainLayout from "../layouts/MainLayout"
 
 function HomePage() {
     return (
-        <div>
+        <main>
             
-        </div>
+        </main>
     )
 }
 

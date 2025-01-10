@@ -1,0 +1,37 @@
+@use "../../styles/variables" as *;
+
+:global(a.active) {
+    color: $primary-text-color;
+}
+
+.site-header {
+    nav {
+        
+
+        a {
+            padding-block: 1px;
+            padding-inline: 6px;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: $primary-text-color;
+        }
+    }
+}
+
+@media screen and (max-width: 1636px) {
+
+    nav {
+        color: $primary-text-color-hover;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    nav {
+        color: $primary-text-color;
+        padding-top: 20%;
+        font-size: 1.7rem;
+    }
+}

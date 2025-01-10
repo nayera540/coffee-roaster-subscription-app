@@ -1,0 +1,15 @@
+:global(a.active) {
+  color: rgb(51, 61, 75);
+}
+
+.site-header nav {
+  color: rgb(131, 136, 143);
+}
+.site-header nav a {
+  padding-block: 1px;
+  padding-inline: 6px;
+  transition: 0.3s;
+}
+.site-header nav a:hover {
+  color: rgb(51, 61, 75);
+}/*# sourceMappingURL=Header.module.css.map */
