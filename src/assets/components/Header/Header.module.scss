@@ -1,13 +1,9 @@
 @use "../../styles/variables" as *;
 
-:global(a.active) {
-    color: $primary-text-color;
-}
 
 .site-header {
     nav {
         
-
         a {
             padding-block: 1px;
             padding-inline: 6px;
@@ -20,7 +16,7 @@
     }
 }
 
-@media screen and (max-width: 1636px) {
+@media screen and (min-width: 768px) {
 
     nav {
         color: $primary-text-color-hover;

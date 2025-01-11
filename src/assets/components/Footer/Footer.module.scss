@@ -1,0 +1,30 @@
+@use "../../styles/variables" as *;
+
+footer{
+    margin-top: 10%;
+    padding: 0 5%;
+    background-color: $footerBgColor;
+    height: 7.5rem;
+
+    
+}
+
+.nav-links-container {
+    a{
+        transition: 0.3s;
+    }
+    a:hover{
+        color: #fff !important;
+    }
+}
+
+.social-links{
+    svg{
+        font-size: 2rem;
+        color: #fff;
+        transition: 0.3s;
+    }
+    svg:hover{
+        color: $primary-color;
+    }
+}

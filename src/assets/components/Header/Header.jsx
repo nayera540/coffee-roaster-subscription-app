@@ -39,9 +39,31 @@ function Header() {
         tracking-[.923px] leading-[0.938rem] md:text-[0.75rem] md:uppercase font-bold gap-[2rem]
                         }`}
                 >
-                    <li><NavLink to="/">Home</NavLink></li>
-                    <li><NavLink to="/about">About Us</NavLink></li>
-                    <li><NavLink to="/plan">Create your plan</NavLink></li>
+                    <li>
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) => (isActive ? 'text-[#333D4B]' : '')}
+                        >
+                            Home
+                        </NavLink>
+
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/about"
+                            className={({ isActive }) => (isActive ? 'text-[#333D4B]' : '')}
+                        >
+                            About Us
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/plan"
+                            className={({ isActive }) => (isActive ? 'text-[#333D4B]' : '')}
+                        >
+                            Create your plan
+                        </NavLink>
+                    </li>
                 </ul>
             </nav>
 

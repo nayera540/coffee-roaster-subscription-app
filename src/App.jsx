@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router"
-import HomePage from "./assets/pages/HomePage"
-import AboutUsPage from "./assets/pages/AboutUsPage"
-import PlanPage from "./assets/pages/PlanPage"
+import HomePage from "./assets/pages/HomePage/HomePage"
+import AboutUsPage from "./assets/pages/AboutPage/AboutUsPage"
+import PlanPage from "./assets/pages/PlanPage/PlanPage"
 import MainLayout from "./assets/layouts/MainLayout"
 
 function App() {

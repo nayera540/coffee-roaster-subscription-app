@@ -4,13 +4,15 @@ import Footer from "../components/Footer/Footer"
 
 function MainLayout() {
     return (
-        <div className="md:container w-full px-[1rem]">
-            <Header />
-            <main>
-                <Outlet/>
-            </main>
+        <>
+            <div className="md:container w-full px-[1rem]">
+                <Header />
+                <main>
+                    <Outlet />
+                </main>
+            </div>
             <Footer />
-        </div>
+        </>
     )
 }
 

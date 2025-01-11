@@ -1,1 +1,22 @@
-/*# sourceMappingURL=Footer.module.css.map */
+footer {
+  margin-top: 10%;
+  padding: 0 5%;
+  background-color: #2c343e;
+  height: 7.5rem;
+}
+
+.nav-links-container a {
+  transition: 0.3s;
+}
+.nav-links-container a:hover {
+  color: #fff !important;
+}
+
+.social-links svg {
+  font-size: 2rem;
+  color: #fff;
+  transition: 0.3s;
+}
+.social-links svg:hover {
+  color: rgb(14, 135, 132);
+}/*# sourceMappingURL=Footer.module.css.map */
