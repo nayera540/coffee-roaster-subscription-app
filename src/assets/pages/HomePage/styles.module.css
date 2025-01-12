@@ -8,6 +8,13 @@
   width: 100%;
 }
 
+.collection-section h2 {
+  background: linear-gradient(180deg, #83888f 21%, rgba(131, 136, 143, 0) 90%);
+  color: rgba(0, 0, 0, 0);
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+
 @media screen and (max-width: 992px) {
   .hero-section {
     background-image: url("/public/images/home/tablet/image-hero-coffeepress.jpg");
@@ -16,5 +23,12 @@
 @media screen and (max-width: 576px) {
   .hero-section {
     background-image: url("/public/images/home/mobile/image-hero-coffeepress.jpg");
+  }
+}
+@media screen and (max-width: 768px) {
+  .collection-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }/*# sourceMappingURL=styles.module.css.map */

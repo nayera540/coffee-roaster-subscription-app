@@ -1,7 +1,7 @@
 @use "../../styles/variables" as *;
 
 
-.hero-section{
+.hero-section {
     background-image: url("/images/home/desktop/image-hero-coffeepress.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,14 +11,30 @@
     width: 100%;
 }
 
+.collection-section {
+    h2{
+        background: linear-gradient(180deg, #83888f 21%, #83888f00 90%);
+        color: #0000;
+        background-clip: text;
+    }
+}
+
 @media screen and (max-width: 992px) {
-    .hero-section{
+    .hero-section {
         background-image: url("/public/images/home/tablet/image-hero-coffeepress.jpg");
     }
 }
 
 @media screen and (max-width: 576px) {
-    .hero-section{
+    .hero-section {
         background-image: url("/public/images/home/mobile/image-hero-coffeepress.jpg");
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .collection-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

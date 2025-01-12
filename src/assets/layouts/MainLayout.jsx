@@ -5,7 +5,7 @@ import Footer from "../components/Footer/Footer"
 function MainLayout() {
     return (
         <>
-            <div className="md:container w-full px-[1rem]">
+            <div className="lg:container w-full px-[1rem]">
                 <Header />
                 <main>
                     <Outlet />

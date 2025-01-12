@@ -1,0 +1,27 @@
+@use "../../styles/variables" as *;
+
+.collection-item{
+    h3{
+        color: $primary-text-color;
+    }
+    p{
+        color: $primary-text-color;
+    }
+}
+
+.espresso {
+    width: 67%;
+}
+
+@media screen and (max-width: 992px) {
+    .espresso {
+        width: 47%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .collection-item {
+        display: flex;
+        align-items: center;
+    }
+}
