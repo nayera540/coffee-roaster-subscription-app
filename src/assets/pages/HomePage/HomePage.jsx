@@ -36,6 +36,11 @@ function HomePage() {
                 </div>
             </section>
             {/* End Collection Section */}
+            {/* Start Features Section */}
+            <section className={`features-section ${styles["features-section"]} py-[4em]`}>
+                
+            </section>
+            {/* End Features Section */}
         </main>
     )
 }
