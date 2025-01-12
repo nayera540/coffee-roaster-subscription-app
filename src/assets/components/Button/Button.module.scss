@@ -1,0 +1,18 @@
+@use "../../styles/variables" as *;
+
+
+.btn{
+    background-color: $primary-color;
+    font-size: 1.2rem;
+    color: $btn-text-color;
+    font-weight: bold;
+    width: 13.563rem;
+    border-radius: 6px;
+    padding: 0.7rem 6px;
+    text-align: center;
+    transition: 0.3s;
+
+    &:hover{
+        background-color: rgb(39, 109, 107);
+    }
+}

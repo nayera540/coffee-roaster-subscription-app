@@ -1,1 +1,14 @@
-/*# sourceMappingURL=Button.module.css.map */
+.btn {
+  background-color: rgb(14, 135, 132);
+  font-size: 1.2rem;
+  color: #fefcf7;
+  font-weight: bold;
+  width: 13.563rem;
+  border-radius: 6px;
+  padding: 0.7rem 6px;
+  text-align: center;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: rgb(39, 109, 107);
+}/*# sourceMappingURL=Button.module.css.map */
