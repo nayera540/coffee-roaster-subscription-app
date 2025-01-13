@@ -12,10 +12,10 @@ function HomePage() {
                 className={`hero-section ${styles["hero-section"]} sm:py-[6.25rem] py-[5rem] px-[2rem] sm:px-[5.5rem] `}
             >
                 <div className="hero-section--wrapper flex flex-col flex-nowrap xl:w-4/12 md:w-9/12 w-100">
-                    <h2 className="hero-title font-fraunces font-black sm:text-[4.5rem] text-[2.4rem] text-[#ffff] leading-[4.5rem]">
+                    <h2 className="hero-title font-fraunces font-black sm:text-[4.5rem] text-[2.4rem] text-[#fefcf7] leading-[4.5rem]">
                         Great coffee made simple.
                     </h2>
-                    <p className="hero-content font-barlow text-[#ffff] sm:pt-[2rem] pt-[1rem] font-light leading-[1.7rem]">
+                    <p className="hero-content font-barlow text-[#fefcf7] sm:pt-[2rem] pt-[1rem] font-light leading-[1.7rem]">
                         Start your mornings with the world’s best coffees. Try our expertly
                         curated artisan coffees from our best roasters delivered directly to
                         your door, at your schedule.
@@ -31,7 +31,7 @@ function HomePage() {
             <section
                 className={`collection-section flex flex-col content-center ${styles["collection-section"]} py-[6em]`}
             >
-                <h2 className="font-fraunces lg:text-[12rem] font-black text-center md:text-[9rem] text-[6rem] leading-[1]">
+                <h2 className="font-fraunces  font-black text-center leading-[1]">
                     our collection
                 </h2>
                 <div
@@ -79,18 +79,18 @@ function HomePage() {
 
             {/* Start Features Section */}
             <section
-                className={`features-section ${styles["features-section"]} py-[4em]`}
+                className={`features-section ${styles["features-section"]} py-[5.7em] md:px-[4em] px-[2em] relative flex justify-center items-center flex-col`}
             >
-                <div className="features-content">
-                    <h2>Why choose us?</h2>
-                    <p>
+                <div className="features-content text-center lg:w-6/12 md:w-10/12 w-full lg:h-[18.5rem] md:h-full h-[12rem] mb-[1.5rem] text-[#fefcf7]">
+                    <h2 className="text-[2.5rem] font-fraunces font-black mb-[1.5rem]">Why choose us?</h2>
+                    <p className="font-barlow font-extralight">
                         A large part of our role is choosing which particular coffees will
                         be featured in our range. This means working closely with the best
                         coffee growers to give you a more impactful experience on every
                         level.
                     </p>
                 </div>
-                <div className="features-wrapper flex w-full lg:flex-nowrap flex-wrap gap-4">
+                <div className="features-wrapper flex w-full lg:flex-nowrap absolute lg:w-[80%] flex-wrap gap-6">
                     <FeatureCard
                         className="lg:w-4/12 w-full"
                         icon={"/images/home/desktop/icon-coffee-bean.svg"}

@@ -1,1 +1,1 @@
-{"version":3,"sources":["Button.module.scss","../../styles/_variables.scss","Button.module.css"],"names":[],"mappings":"AAGA;EACI,mCCHY;EDIZ,iBAAA;EACA,cCEa;EDDb,iBAAA;EACA,gBAAA;EACA,kBAAA;EACA,mBAAA;EACA,kBAAA;EACA,gBAAA;AEFJ;AFII;EACI,mCAAA;AEFR","file":"Button.module.css"}
+{"version":3,"sources":["Button.module.scss","../../styles/_variables.scss","Button.module.css"],"names":[],"mappings":"AAGA;EACI,mCCHY;EDIZ,iBAAA;EACA,cCEa;EDDb,iBAAA;EACA,oBAAA;EACA,kBAAA;EACA,sBAAA;EACA,kBAAA;EACA,gBAAA;AEFJ;AFII;EACI,mCAAA;AEFR","file":"Button.module.css"}

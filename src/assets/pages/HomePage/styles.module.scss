@@ -16,6 +16,7 @@
         background: linear-gradient(180deg, #83888f 21%, #83888f00 90%);
         color: #0000;
         background-clip: text;
+        font-size: clamp(3rem, 12vw, 12rem);
     }
 }
 

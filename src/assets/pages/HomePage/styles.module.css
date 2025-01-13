@@ -13,6 +13,7 @@
   color: rgba(0, 0, 0, 0);
   -webkit-background-clip: text;
           background-clip: text;
+  font-size: clamp(3rem, 12vw, 12rem);
 }
 
 .features-section {

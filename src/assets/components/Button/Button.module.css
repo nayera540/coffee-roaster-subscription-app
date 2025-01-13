@@ -3,9 +3,9 @@
   font-size: 1.2rem;
   color: #fefcf7;
   font-weight: bold;
-  width: 13.563rem;
+  max-width: 13.563rem;
   border-radius: 6px;
-  padding: 0.7rem 6px;
+  padding: 0.7rem 1.5rem;
   text-align: center;
   transition: 0.3s;
 }
