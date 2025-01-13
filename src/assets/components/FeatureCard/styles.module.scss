@@ -3,5 +3,35 @@
 .feature-card{
     background-color: $primary-color;
     border-radius: 10px;
-    padding: 4rem 2rem;
+    padding: 5.5rem 3rem;
+
+    h3{
+        color: $btn-text-color;
+        
+    }
+
+    p{
+        color: $btn-text-color;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .feature-card{
+        padding: 2.7rem 3.5rem;
+        gap: 2rem;
+
+        h3{
+            padding-top: 1rem;
+        }
+
+        p{
+            padding-top: 1rem;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .feature-card{
+        padding: 3.5rem 3.5rem;
+    }
 }

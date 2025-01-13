@@ -26,6 +26,10 @@
     background-size: cover;
     box-sizing: border-box;
     border-radius: 10px;
+
+    .features-wrapper{
+        position: absolute;
+    }
 }
 
 @media screen and (max-width: 992px) {

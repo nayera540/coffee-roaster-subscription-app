@@ -81,7 +81,7 @@ function HomePage() {
             <section
                 className={`features-section ${styles["features-section"]} py-[5.7em] md:px-[4em] px-[2em] relative flex justify-center items-center flex-col`}
             >
-                <div className="features-content text-center lg:w-6/12 md:w-10/12 w-full lg:h-[18.5rem] md:h-full h-[12rem] mb-[1.5rem] text-[#fefcf7]">
+                <div className="features-content text-center lg:w-6/12 md:w-10/12 w-full lg:h-[21.5rem] md:h-[31.5rem] h-[41.5rem] mb-[1.5rem] text-[#fefcf7]">
                     <h2 className="text-[2.5rem] font-fraunces font-black mb-[1.5rem]">Why choose us?</h2>
                     <p className="font-barlow font-extralight">
                         A large part of our role is choosing which particular coffees will
@@ -90,7 +90,7 @@ function HomePage() {
                         level.
                     </p>
                 </div>
-                <div className="features-wrapper flex w-full lg:flex-nowrap absolute lg:w-[80%] flex-wrap gap-6">
+                <div className="features-wrapper flex top-[21rem] absolute lg:flex-nowrap w-[80%]  flex-wrap gap-6">
                     <FeatureCard
                         className="lg:w-4/12 w-full"
                         icon={"/images/home/desktop/icon-coffee-bean.svg"}
