@@ -7,9 +7,7 @@ function MainLayout() {
         <>
             <div className="lg:container w-full px-[1rem]">
                 <Header />
-                <main>
                     <Outlet />
-                </main>
             </div>
             <Footer />
         </>
