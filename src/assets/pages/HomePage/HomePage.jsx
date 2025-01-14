@@ -136,7 +136,7 @@ function HomePage() {
                     <span className="line w-[50%] h-[2px] block bg-[#fdd6ba]"></span>
                     <span className="border-2 border-[#0e8784] rounded-full h-[35px] w-[40px]"></span>
                 </div>
-                <div className="steps-wrapper flex md:flex-nowrap w-full flex-wrap md:items-start lg:w-[95%] md:justify-start lg:gap-[4.5rem] items-center justify-center">
+                <div className="steps-wrapper flex md:flex-nowrap w-full flex-wrap md:items-start mb-[5rem] lg:w-[95%] md:justify-start lg:gap-[6.5rem] items-center justify-center">
                     <StepItem
                         className="md:w-4/12 w-full"
                         stepNumber={"01"}
@@ -162,6 +162,9 @@ function HomePage() {
                         }
                     />
                 </div>
+                <NavLink to="/plan">
+                        <Button>Create your plan</Button>
+                    </NavLink>
             </section>
             {/* End Steps Section */}
         </main>
