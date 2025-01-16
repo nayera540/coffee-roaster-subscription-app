@@ -12,12 +12,40 @@
 }
 
 .commitment-section {
-    .content{
-        h2{
+    .content {
+        h2 {
             color: $primary-text-color;
         }
-        p{
+
+        p {
             color: $primary-text-color;
+        }
+    }
+}
+
+.quality-section {
+    background-image: url("/public/images/about/desktop/bg-quality.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    width: 100%;
+    color: $secondary-text-color;
+
+    .quality-img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        position: absolute;
+        right: 85px;
+        padding-bottom: 90px;
+        object-fit: cover;
+        bottom: 0;
+    }
+}
+
+@media screen and (max-width: 1498px) {
+    .quality-section{
+        .quality-img{
+            right: 11px;
         }
     }
 }
@@ -31,6 +59,25 @@
         content: url("/public/images/about/tablet/image-commitment.jpg");
         border-radius: 10px;
     }
+
+    .quality-section {
+        background-image: url("/public/images/about/tablet/bg-quality.png");
+        margin-top: 13rem;
+        padding-top: 5rem;
+        padding-bottom: 4rem;
+        padding-inline: 3rem;
+        .quality-img {
+            content: url("/public/images/about/tablet/image-quality.jpg");
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            width: 90%;
+            bottom: 110%;
+            right: 5%;
+            object-position: center bottom;
+            padding-bottom: 0;
+            height: 164%;
+        }
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -41,5 +88,26 @@
     .commitemnt-img {
         content: url("/public/images/about/mobile/image-commitment.jpg");
         border-radius: 0;
+    }
+
+    .quality-section {
+        background-image: url("/public/images/about/mobile/bg-quality.png");
+        margin-top: 18rem;
+
+        .quality-img {
+            content: url("/public/images/about/mobile/image-quality.jpg");
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            object-position: unset;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .quality-section{
+        margin-top: 24rem;
+        .quality-img{
+            height: 120%;
+        }
     }
 }

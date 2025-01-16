@@ -15,6 +15,30 @@
   color: rgb(51, 61, 75);
 }
 
+.quality-section {
+  background-image: url("/public/images/about/desktop/bg-quality.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  width: 100%;
+  color: #fefcf7;
+}
+.quality-section .quality-img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: absolute;
+  right: 85px;
+  padding-bottom: 90px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  bottom: 0;
+}
+
+@media screen and (max-width: 1498px) {
+  .quality-section .quality-img {
+    right: 11px;
+  }
+}
 @media screen and (max-width: 992px) {
   .hero-section {
     background-image: url("/public/images/about/tablet/image-hero-whitecup.jpg");
@@ -22,6 +46,25 @@
   .commitemnt-img {
     content: url("/public/images/about/tablet/image-commitment.jpg");
     border-radius: 10px;
+  }
+  .quality-section {
+    background-image: url("/public/images/about/tablet/bg-quality.png");
+    margin-top: 13rem;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+    padding-inline: 3rem;
+  }
+  .quality-section .quality-img {
+    content: url("/public/images/about/tablet/image-quality.jpg");
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 90%;
+    bottom: 110%;
+    right: 5%;
+    -o-object-position: center bottom;
+       object-position: center bottom;
+    padding-bottom: 0;
+    height: 164%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -31,5 +74,24 @@
   .commitemnt-img {
     content: url("/public/images/about/mobile/image-commitment.jpg");
     border-radius: 0;
+  }
+  .quality-section {
+    background-image: url("/public/images/about/mobile/bg-quality.png");
+    margin-top: 18rem;
+  }
+  .quality-section .quality-img {
+    content: url("/public/images/about/mobile/image-quality.jpg");
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -o-object-position: unset;
+       object-position: unset;
+  }
+}
+@media screen and (max-width: 550px) {
+  .quality-section {
+    margin-top: 24rem;
+  }
+  .quality-section .quality-img {
+    height: 120%;
   }
 }/*# sourceMappingURL=styles.module.css.map */

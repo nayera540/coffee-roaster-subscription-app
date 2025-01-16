@@ -22,11 +22,20 @@ function AboutUsPage() {
             {/* End Hero Section */}
 
             {/* Start Commitment Section */}
-            <section className={`commitment-section py-[6em] ${styles["commitment-section"]} flex justify-center items-center`}>
+            <section
+                className={`commitment-section py-[6em] ${styles["commitment-section"]} flex justify-center items-center`}
+            >
                 <div className="commitment-container flex lg:flex-nowrap flex-wrap justify-center lg:items-center md:items-start items-center lg:gap-[7rem] md:gap-[3.5rem] gap-[1.5rem] lg:w-[78%] w-full">
-                    <img src="/public/images/about/desktop/image-commitment.jpg" className={`commitemnt-img ${styles["commitemnt-img"]} lg:w-[36%] md:w-[34%] max-w-[65%]`} />
-                    <div className={`content lg:w-7/12 md:w-6/12 w-full ${styles["content"]} md:text-start text-center`}>
-                        <h2 className="font-fraunces font-black lg:text-[2.5rem] text-[2rem] mb-[1rem]">Our commitment</h2>
+                    <img
+                        src="/public/images/about/desktop/image-commitment.jpg"
+                        className={`commitemnt-img ${styles["commitemnt-img"]} lg:w-[36%] md:w-[34%] max-w-[65%]`}
+                    />
+                    <div
+                        className={`content lg:w-7/12 md:w-6/12 w-full ${styles["content"]} md:text-start text-center`}
+                    >
+                        <h2 className="font-fraunces font-black lg:text-[2.5rem] text-[2rem] mb-[1rem]">
+                            Our commitment
+                        </h2>
                         <p className="font-barlow leading-[1.7rem]">
                             We’re built on a simple mission and a commitment to doing good
                             along the way. We want to make it easy for you to discover and
@@ -45,6 +54,27 @@ function AboutUsPage() {
                 </div>
             </section>
             {/* End Commitment Section */}
+
+            {/* Start Quality Section */}
+            <section className={`quality-section ${styles["quality-section"]} pt-[5.5em] pb-[2rem] pr-[3em] pl-[6em] relative mt-[7rem]`}>
+                <div className="content-container flex lg:flex-nowrap flex-wrap justify-between relative">
+                    <div className="content lg:max-w-[41.6667%] w-full md:text-start text-center lg:h-[24rem]">
+                        <h2 className="font-fraunces text-[2.5rem] font-black mb-[1rem]">Uncompromising quality</h2>
+                        <p className="font-barlow leading-[28px] font-thin">
+                            Although we work with growers who pay close attention to all stages
+                            of harvest and processing, we employ, on our end, a rigorous quality
+                            control program to avoid over-roasting or baking the coffee dry.
+                            Every bag of coffee is tagged with a roast date and batch number.
+                            Our goal is to roast consistent, user-friendly coffee, so that
+                            brewing is easy and enjoyable.
+                        </p>
+                    </div>
+                    <div className="img-container flex justify-self-end">
+                        <img src="/public/images/about/desktop/image-quality.jpg" className={`quality-img ${styles["quality-img"]}`} />
+                    </div>
+                </div>
+            </section>
+            {/* End Quality Section */}
         </main>
     );
 }
