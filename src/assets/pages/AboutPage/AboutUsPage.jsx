@@ -1,3 +1,4 @@
+import QuarterItem from "../../components/QuarterItem/QuarterItem";
 import styles from "./styles.module.scss";
 
 function AboutUsPage() {
@@ -56,25 +57,61 @@ function AboutUsPage() {
             {/* End Commitment Section */}
 
             {/* Start Quality Section */}
-            <section className={`quality-section ${styles["quality-section"]} pt-[5.5em] pb-[2rem] pr-[3em] pl-[6em] relative mt-[7rem]`}>
+            <section
+                className={`quality-section ${styles["quality-section"]} pt-[5.5em] pb-[2rem] pr-[3em] pl-[6em] relative mt-[7rem]`}
+            >
                 <div className="content-container flex lg:flex-nowrap flex-wrap justify-between relative">
                     <div className="content lg:max-w-[41.6667%] w-full md:text-start text-center lg:h-[24rem]">
-                        <h2 className="font-fraunces text-[2.5rem] font-black mb-[1rem]">Uncompromising quality</h2>
+                        <h2 className="font-fraunces text-[2.5rem] font-black mb-[1rem]">
+                            Uncompromising quality
+                        </h2>
                         <p className="font-barlow leading-[28px] font-thin">
-                            Although we work with growers who pay close attention to all stages
-                            of harvest and processing, we employ, on our end, a rigorous quality
-                            control program to avoid over-roasting or baking the coffee dry.
-                            Every bag of coffee is tagged with a roast date and batch number.
-                            Our goal is to roast consistent, user-friendly coffee, so that
-                            brewing is easy and enjoyable.
+                            Although we work with growers who pay close attention to all
+                            stages of harvest and processing, we employ, on our end, a
+                            rigorous quality control program to avoid over-roasting or baking
+                            the coffee dry. Every bag of coffee is tagged with a roast date
+                            and batch number. Our goal is to roast consistent, user-friendly
+                            coffee, so that brewing is easy and enjoyable.
                         </p>
                     </div>
                     <div className="img-container flex justify-self-end">
-                        <img src="/public/images/about/desktop/image-quality.jpg" className={`quality-img ${styles["quality-img"]}`} />
+                        <img
+                            src="/public/images/about/desktop/image-quality.jpg"
+                            className={`quality-img ${styles["quality-img"]}`}
+                        />
                     </div>
                 </div>
             </section>
             {/* End Quality Section */}
+
+            {/* Start Headquarters Section */}
+            <section className={`headquarter-section pt-[7em] pb-[2em] px-[5em]`}>
+                <h4>Our headquarters</h4>
+                <div className="flex sm:flex-nowrap flex-wrap justify-between items-start">
+                    <div className="sm:w-4/12 w-full">
+                        <QuarterItem
+                            continentImg={"/public/images/about/desktop/illustration-uk.svg"}
+                            title={"United Kingdom"}
+                            content={"68 Asfordby Rd, Alcaston, SY6 1YA, +44 1241 918425"}
+                        />
+                    </div>
+                    <div className="sm:w-4/12 w-full">
+                        <QuarterItem
+                            continentImg={"/public/images/about/desktop/illustration-canada.svg"}
+                            title={"Canada"}
+                            content={"1528 Eglinton Avenue, Toronto, Ontario M4P 1A6, +1 416 485 2997"}
+                        />
+                    </div>
+                    <div className="sm:w-4/12 w-full">
+                        <QuarterItem
+                            continentImg={"/public/images/about/desktop/illustration-australia.svg"}
+                            title={"Australia"}
+                            content={"36 Swanston Street, Kewell, Victoria, +61 4 9928 3629"}
+                        />
+                    </div>
+                </div>
+            </section>
+            {/* End Headquarters Section */}
         </main>
     );
 }
