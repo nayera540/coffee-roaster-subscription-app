@@ -86,8 +86,8 @@ function AboutUsPage() {
 
             {/* Start Headquarters Section */}
             <section className={`headquarter-section pt-[7em] pb-[2em] px-[5em]`}>
-                <h4>Our headquarters</h4>
-                <div className="flex sm:flex-nowrap flex-wrap justify-between items-start">
+                <h4 className="font-fraunces text-[#83888f] font-black text-[1.8rem]">Our headquarters</h4>
+                <div className="flex sm:flex-nowrap flex-wrap justify-between items-start justify-items-center mt-[1.8rem] lg:gap-0 gap-[1.8rem]">
                     <div className="sm:w-4/12 w-full">
                         <QuarterItem
                             continentImg={"/public/images/about/desktop/illustration-uk.svg"}
