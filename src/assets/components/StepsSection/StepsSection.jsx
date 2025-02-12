@@ -5,12 +5,7 @@ import styles from "./styles.module.scss";
 
 function StepsSection() {
     return (
-        <section
-                className={`steps-section ${styles["steps-section"]} md:text-start text-center`}
-            >
-                <h4 className="font-fraunces text-[1.8rem] font-black mb-[5rem]">
-                    How it works
-                </h4>
+        <>
                 <div className="line-container hidden md:flex md:flex-row md:items-center md:max-w-[72%] md:mb-[3rem]">
                     <span className="border-2 border-[#0e8784] rounded-full h-[35px] w-[40px]"></span>
                     <span className="line w-[50%] h-[2px] block bg-[#fdd6ba]"></span>
@@ -44,10 +39,8 @@ function StepsSection() {
                         }
                     />
                 </div>
-                <NavLink to="/plan">
-                        <Button>Create your plan</Button>
-                    </NavLink>
-            </section>
+                
+            </>
     )
 }
 

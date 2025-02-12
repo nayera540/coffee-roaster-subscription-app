@@ -123,7 +123,17 @@ function HomePage() {
             {/* End Features Section */}
 
             {/* Start Steps Section */}
-            <StepsSection />
+            <section
+                className={`steps-section ${styles["steps-section"]} md:text-start text-center`}
+            >
+                <h4 className="font-fraunces text-[1.8rem] font-black mb-[5rem]">
+                    How it works
+                </h4>
+                <StepsSection />
+                <NavLink to="/plan">
+                    <Button>Create your plan</Button>
+                </NavLink>
+            </section>
             {/* End Steps Section */}
         </main>
     );

@@ -1,3 +1,4 @@
+import StepsSection from "../../components/StepsSection/StepsSection";
 import styles from "./styles.module.scss";
 
 function PlanPage() {
@@ -17,6 +18,12 @@ function PlanPage() {
                 </div>
             </section>
             {/* End Hero Section */}
+
+            {/* Start Steps Section */}
+            <section className={`steps-section ${styles["steps-section"]} my-[8em] py-[3.5rem] px-[5rem]`}>
+                <StepsSection />
+            </section>
+            {/* End Steps Section */}
         </main>
     );
 }

@@ -1,2 +1,7 @@
 @use "../../styles/variables" as *;
 
+.steps-item{
+    h3{
+        color: $tertiary-text-color;
+    }
+}

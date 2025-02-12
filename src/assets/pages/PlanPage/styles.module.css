@@ -8,13 +8,29 @@
   color: #fefcf7;
 }
 
+.steps-section {
+  background-image: url("/public/images/plan/desktop/bg-steps.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  width: 100%;
+  color: #fefcf7 !important;
+}
+
 @media screen and (max-width: 992px) {
   .hero-section {
     background-image: url("/public/images/plan/tablet/image-hero-blackcup.jpg");
+  }
+  .steps-section {
+    background-image: url("/public/images/plan/tablet/bg-steps.png");
   }
 }
 @media screen and (max-width: 768px) {
   .hero-section {
     background-image: url("/public/images/plan/mobile/image-hero-blackcup.jpg");
+  }
+  .steps-section {
+    background-image: url("/public/images/plan/mobile/bg-steps.png");
   }
 }/*# sourceMappingURL=styles.module.css.map */
