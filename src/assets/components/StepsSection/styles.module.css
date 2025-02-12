@@ -1,0 +1,38 @@
+.steps-section {
+  margin: 22% 4%;
+  margin-bottom: 0;
+}
+.steps-section h4 {
+  color: #83888f;
+}
+
+@media screen and (max-width: 1100px) {
+  .steps-section {
+    margin-top: 40%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .steps-section {
+    margin-top: 50%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .steps-section {
+    margin-top: 95%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .steps-section {
+    margin-top: max(162%, 10vw);
+  }
+}
+@media screen and (max-width: 432px) {
+  .steps-section {
+    margin-top: max(230% + 10vw);
+  }
+}
+@media screen and (max-width: 366px) {
+  .steps-section {
+    margin-top: max(280% + 10vw);
+  }
+}/*# sourceMappingURL=styles.module.css.map */

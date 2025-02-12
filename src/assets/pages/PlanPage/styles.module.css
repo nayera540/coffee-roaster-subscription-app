@@ -1,1 +1,20 @@
-/*# sourceMappingURL=styles.module.css.map */
+.hero-section {
+  background-image: url("/public/images/plan/desktop/image-hero-blackcup.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  width: 100%;
+  color: #fefcf7;
+}
+
+@media screen and (max-width: 992px) {
+  .hero-section {
+    background-image: url("/public/images/plan/tablet/image-hero-blackcup.jpg");
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-section {
+    background-image: url("/public/images/plan/mobile/image-hero-blackcup.jpg");
+  }
+}/*# sourceMappingURL=styles.module.css.map */
