@@ -28,7 +28,7 @@ function AboutUsPage() {
             >
                 <div className="commitment-container flex lg:flex-nowrap flex-wrap justify-center lg:items-center md:items-start items-center lg:gap-[7rem] md:gap-[3.5rem] gap-[1.5rem] lg:w-[78%] w-full">
                     <img
-                        src="/public/images/about/desktop/image-commitment.jpg"
+                        src="/images/about/desktop/image-commitment.jpg"
                         className={`commitemnt-img ${styles["commitemnt-img"]} lg:w-[36%] md:w-[34%] max-w-[65%]`}
                     />
                     <div
@@ -76,7 +76,7 @@ function AboutUsPage() {
                     </div>
                     <div className="img-container flex justify-self-end">
                         <img
-                            src="/public/images/about/desktop/image-quality.jpg"
+                            src="/images/about/desktop/image-quality.jpg"
                             className={`quality-img ${styles["quality-img"]}`}
                         />
                     </div>
@@ -90,21 +90,21 @@ function AboutUsPage() {
                 <div className="flex sm:flex-nowrap flex-wrap justify-between items-start justify-items-center mt-[1.8rem] lg:gap-0 gap-[1.8rem]">
                     <div className="sm:w-4/12 w-full">
                         <QuarterItem
-                            continentImg={"/public/images/about/desktop/illustration-uk.svg"}
+                            continentImg={"/images/about/desktop/illustration-uk.svg"}
                             title={"United Kingdom"}
                             content={"68 Asfordby Rd, Alcaston, SY6 1YA, +44 1241 918425"}
                         />
                     </div>
                     <div className="sm:w-4/12 w-full">
                         <QuarterItem
-                            continentImg={"/public/images/about/desktop/illustration-canada.svg"}
+                            continentImg={"/images/about/desktop/illustration-canada.svg"}
                             title={"Canada"}
                             content={"1528 Eglinton Avenue, Toronto, Ontario M4P 1A6, +1 416 485 2997"}
                         />
                     </div>
                     <div className="sm:w-4/12 w-full">
                         <QuarterItem
-                            continentImg={"/public/images/about/desktop/illustration-australia.svg"}
+                            continentImg={"/images/about/desktop/illustration-australia.svg"}
                             title={"Australia"}
                             content={"36 Swanston Street, Kewell, Victoria, +61 4 9928 3629"}
                         />
