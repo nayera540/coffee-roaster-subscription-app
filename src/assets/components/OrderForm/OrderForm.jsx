@@ -4,6 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useReducer } from 'react';
 
 const order_options = {
     preference: {
@@ -94,7 +95,7 @@ const order_options = {
 };
 
 const initialState = {
-    accordionOpen: null,
+    accordionOpen: [],
     selectedOptions: {
         preference: null,
         beanType: null,
@@ -104,19 +105,51 @@ const initialState = {
     },
 };
 
+function reducer(state = initialState, action) {
+    switch (action.type) {
+        case "toggle_accordion":
+            return {
+                ...state,
+                accordionOpen: state.accordionOpen.includes(action.payload) ?
+                    state.accordionOpen.filter(key => key !== action.payload) :
+                    [...state.accordionOpen, action.payload]
+            };
+        case "add_order_details":
+            return{
+                ...state,
+                selectedOptions:{
+                    ...state.selectedOptions,
+                    [action.payload.category]: action.payload.name
+                }
+            }
+        default:
+            return state;
+    }
+}
+
 function formatKey(key) {
     return key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
 }
 
 function OrderForm() {
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    function handleAccordion(key) {
+        dispatch({ type: "toggle_accordion", payload: key })
+    }
+
+    function handleOrderDetails(name, category) {
+        dispatch({type: "add_order_details", payload: {category: category, name: name}})
+    }
+
     return (
         <div className="order-container flex lg:flex-nowrap flex-wrap w-full">
             <div className="lg:w-3/12 lg:block hidden options-headers">
                 {Object.keys(order_options).map((key, index) => (
                     <p
                         key={key}
-                        className={`option-title`}
-
+                        className={`option-title hover:cursor-pointer`}
+                        onClick={() => handleAccordion(key)}
                     >
                         <span className="option-number">{String(index + 1).padStart(2, '0')}</span>
                         {formatKey(key)}
@@ -125,18 +158,19 @@ function OrderForm() {
             </div>
             <div className="lg:w-9/12 w-full">
                 {Object.keys(order_options).map((category) => (
-                    <Accordion key={category} className='!bg-transparent !shadow-none !border-none !static'>
+                    <Accordion key={category} className='!bg-transparent !shadow-none !border-none !static' expanded={state.accordionOpen.includes(category)} onChange={() => handleAccordion(category)}>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls={`${category}-panel`}
                             id={`${category}-header`}
+
                         >
                             <Typography component="span" className='!font-fraunces'>{order_options[category].question}</Typography>
                         </AccordionSummary>
                         <div className='option-details flex gap-10'>
                             {
                                 order_options[category].options.map((options, index) => (
-                                    <div key={index} className='options-content flex flex-col bg-red-500'>
+                                    <div key={index} className='options-content flex flex-col bg-red-500' onClick={() => handleOrderDetails(options.name, category)}>
                                         <AccordionDetails className='font-fraunces'>
                                             {options.name}
                                         </AccordionDetails>
@@ -149,6 +183,14 @@ function OrderForm() {
                         </div>
                     </Accordion>
                 ))}
+                <div className='order_summary'>
+                    <p>
+                        order summary
+                    </p>
+                    <p>
+                        
+                    </p>
+                </div>
             </div>
         </div>
     )
