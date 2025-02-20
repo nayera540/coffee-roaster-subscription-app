@@ -1,4 +1,11 @@
-const options = {
+import Accordion from '@mui/material/Accordion';
+import AccordionActions from '@mui/material/AccordionActions';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+const order_options = {
     preference: {
         question: "How do you drink your coffee?",
         options: [
@@ -86,10 +93,63 @@ const options = {
     },
 };
 
+const initialState = {
+    accordionOpen: null,
+    selectedOptions: {
+        preference: null,
+        beanType: null,
+        quantity: null,
+        grindOption: null,
+        deliveries: null,
+    },
+};
+
+function formatKey(key) {
+    return key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+}
+
 function OrderForm() {
     return (
-        <div>
+        <div className="order-container flex lg:flex-nowrap flex-wrap w-full">
+            <div className="lg:w-3/12 lg:block hidden options-headers">
+                {Object.keys(order_options).map((key, index) => (
+                    <p
+                        key={key}
+                        className={`option-title`}
 
+                    >
+                        <span className="option-number">{String(index + 1).padStart(2, '0')}</span>
+                        {formatKey(key)}
+                    </p>
+                ))}
+            </div>
+            <div className="lg:w-9/12 w-full">
+                {Object.keys(order_options).map((category) => (
+                    <Accordion key={category} className='!bg-transparent !shadow-none !border-none !static'>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls={`${category}-panel`}
+                            id={`${category}-header`}
+                        >
+                            <Typography component="span" className='!font-fraunces'>{order_options[category].question}</Typography>
+                        </AccordionSummary>
+                        <div className='option-details flex gap-10'>
+                            {
+                                order_options[category].options.map((options, index) => (
+                                    <div key={index} className='options-content flex flex-col bg-red-500'>
+                                        <AccordionDetails className='font-fraunces'>
+                                            {options.name}
+                                        </AccordionDetails>
+                                        <AccordionDetails>
+                                            {options.content}
+                                        </AccordionDetails>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </Accordion>
+                ))}
+            </div>
         </div>
     )
 }
