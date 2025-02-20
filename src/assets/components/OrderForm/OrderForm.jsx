@@ -1,10 +1,10 @@
-import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useReducer } from 'react';
+import Accordion from "@mui/material/Accordion";
+import AccordionActions from "@mui/material/AccordionActions";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useReducer } from "react";
 
 const order_options = {
     preference: {
@@ -16,11 +16,13 @@ const order_options = {
             },
             {
                 name: "Filter",
-                content: "For pour over or drip methods like Aeropress, Chemex, and V60",
+                content:
+                    "For pour over or drip methods like Aeropress, Chemex, and V60",
             },
             {
                 name: "Espresso",
-                content: "Dense and finely ground beans for an intense, flavorful experience",
+                content:
+                    "Dense and finely ground beans for an intense, flavorful experience",
             },
         ],
     },
@@ -29,15 +31,18 @@ const order_options = {
         options: [
             {
                 name: "Single Origin",
-                content: "Distinct, high quality coffee from a specific family-owned farm",
+                content:
+                    "Distinct, high quality coffee from a specific family-owned farm",
             },
             {
                 name: "Decaf",
-                content: "Just like regular coffee, except the caffeine has been removed",
+                content:
+                    "Just like regular coffee, except the caffeine has been removed",
             },
             {
                 name: "Blended",
-                content: "Combination of two or three dark roasted beans of organic coffees",
+                content:
+                    "Combination of two or three dark roasted beans of organic coffees",
             },
         ],
     },
@@ -46,15 +51,18 @@ const order_options = {
         options: [
             {
                 name: "250g",
-                content: "Perfect for the solo drinker. Yields about 12 delicious cups.",
+                content:
+                    "Perfect for the solo drinker. Yields about 12 delicious cups.",
             },
             {
                 name: "500g",
-                content: "Perfect option for a couple. Yields about 40 delectable cups.",
+                content:
+                    "Perfect option for a couple. Yields about 40 delectable cups.",
             },
             {
                 name: "1000g",
-                content: "Perfect for offices and events. Yields about 90 delightful cups.",
+                content:
+                    "Perfect for offices and events. Yields about 90 delightful cups.",
             },
         ],
     },
@@ -67,7 +75,8 @@ const order_options = {
             },
             {
                 name: "Filter",
-                content: "For drip or pour-over coffee methods such as V60 or Aeropress",
+                content:
+                    "For drip or pour-over coffee methods such as V60 or Aeropress",
             },
             {
                 name: "Cafetiére",
@@ -110,36 +119,41 @@ function reducer(state = initialState, action) {
         case "toggle_accordion":
             return {
                 ...state,
-                accordionOpen: state.accordionOpen.includes(action.payload) ?
-                    state.accordionOpen.filter(key => key !== action.payload) :
-                    [...state.accordionOpen, action.payload]
+                accordionOpen: state.accordionOpen.includes(action.payload)
+                    ? state.accordionOpen.filter((key) => key !== action.payload)
+                    : [...state.accordionOpen, action.payload],
             };
         case "add_order_details":
-            return{
+            return {
                 ...state,
-                selectedOptions:{
+                selectedOptions: {
                     ...state.selectedOptions,
-                    [action.payload.category]: action.payload.name
-                }
-            }
+                    [action.payload.category]: action.payload.name,
+                },
+            };
         default:
             return state;
     }
 }
 
 function formatKey(key) {
-    return key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+    return key
+        .replace(/([A-Z])/g, " $1")
+        .replace(/^./, (str) => str.toUpperCase());
 }
 
 function OrderForm() {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     function handleAccordion(key) {
-        dispatch({ type: "toggle_accordion", payload: key })
+        dispatch({ type: "toggle_accordion", payload: key });
     }
 
     function handleOrderDetails(name, category) {
-        dispatch({type: "add_order_details", payload: {category: category, name: name}})
+        dispatch({
+            type: "add_order_details",
+            payload: { category: category, name: name },
+        });
     }
 
     return (
@@ -151,49 +165,85 @@ function OrderForm() {
                         className={`option-title hover:cursor-pointer`}
                         onClick={() => handleAccordion(key)}
                     >
-                        <span className="option-number">{String(index + 1).padStart(2, '0')}</span>
+                        <span className="option-number">
+                            {String(index + 1).padStart(2, "0")}
+                        </span>
                         {formatKey(key)}
                     </p>
                 ))}
             </div>
             <div className="lg:w-9/12 w-full">
                 {Object.keys(order_options).map((category) => (
-                    <Accordion key={category} className='!bg-transparent !shadow-none !border-none !static' expanded={state.accordionOpen.includes(category)} onChange={() => handleAccordion(category)}>
+                    <Accordion
+                        key={category}
+                        className="!bg-transparent !shadow-none !border-none !static"
+                        expanded={state.accordionOpen.includes(category)}
+                        onChange={() => handleAccordion(category)}
+                    >
                         <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
+                            expandIcon={<img src="/public/images/plan/desktop/icon-arrow.svg" />}
                             aria-controls={`${category}-panel`}
                             id={`${category}-header`}
-
                         >
-                            <Typography component="span" className='!font-fraunces'>{order_options[category].question}</Typography>
+                            <Typography component="span" className="!font-fraunces">
+                                {order_options[category].question}
+                            </Typography>
                         </AccordionSummary>
-                        <div className='option-details flex gap-10'>
-                            {
-                                order_options[category].options.map((options, index) => (
-                                    <div key={index} className='options-content flex flex-col bg-red-500' onClick={() => handleOrderDetails(options.name, category)}>
-                                        <AccordionDetails className='font-fraunces'>
-                                            {options.name}
-                                        </AccordionDetails>
-                                        <AccordionDetails>
-                                            {options.content}
-                                        </AccordionDetails>
-                                    </div>
-                                ))
-                            }
+                        <div className="option-details flex gap-10">
+                            {order_options[category].options.map((options, index) => (
+                                <div
+                                    key={index}
+                                    className="options-content flex flex-col bg-red-500"
+                                    onClick={() => handleOrderDetails(options.name, category)}
+                                >
+                                    <AccordionDetails className="font-fraunces">
+                                        {options.name}
+                                    </AccordionDetails>
+                                    <AccordionDetails>{options.content}</AccordionDetails>
+                                </div>
+                            ))}
                         </div>
                     </Accordion>
                 ))}
-                <div className='order_summary'>
+                <div className="order_summary">
+                    <p>order summary</p>
                     <p>
-                        order summary
-                    </p>
-                    <p>
-                        
+                        "I drink my coffee as{" "}
+                        <span>
+                            {state.selectedOptions.preference
+                                ? state.selectedOptions.preference
+                                : "_____"}
+                        </span>
+                        , with a{" "}
+                        <span>
+                            {state.selectedOptions.beanType
+                                ? state.selectedOptions.beanType
+                                : "_____"}
+                        </span>
+                        .{" "}
+                        <span>
+                            {state.selectedOptions.quantity
+                                ? state.selectedOptions.quantity
+                                : "_____"}
+                        </span>{" "}
+                        ground ala{" "}
+                        <span>
+                            {state.selectedOptions.grindOption
+                                ? state.selectedOptions.grindOption
+                                : "_____"}
+                        </span>
+                        , sent to me{" "}
+                        <span>
+                            {state.selectedOptions.deliveries
+                                ? state.selectedOptions.deliveries
+                                : "_____"}
+                        </span>
+                        . "
                     </p>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default OrderForm;
