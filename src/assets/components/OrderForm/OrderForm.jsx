@@ -181,11 +181,20 @@ function OrderForm() {
                         onChange={() => handleAccordion(category)}
                     >
                         <AccordionSummary
-                            expandIcon={<img src="/public/images/plan/desktop/icon-arrow.svg" />}
+                            expandIcon={
+                                <img src="/public/images/plan/desktop/icon-arrow.svg" />
+                            }
+                            className="!p-0"
                             aria-controls={`${category}-panel`}
                             id={`${category}-header`}
                         >
-                            <Typography component="span" className="!font-fraunces">
+                            <Typography
+                                component="span"
+                                className={`!font-fraunces !font-black !text-[3rem]  ${state.accordionOpen.includes(category)
+                                        ? "text-[#83888f]"
+                                        : "text-[#d5d5d4]"
+                                    }`}
+                            >
                                 {order_options[category].question}
                             </Typography>
                         </AccordionSummary>
@@ -193,10 +202,10 @@ function OrderForm() {
                             {order_options[category].options.map((options, index) => (
                                 <div
                                     key={index}
-                                    className="options-content flex flex-col bg-red-500"
+                                    className={`options-content flex flex-col rounded-md py-[2rem] px-[1.75rem] h-[16rem] max-w-[20rem] ${state.selectedOptions[category] === options.name? "bg-[#0e8784] text-white": "bg-[#f4f1eb] hover:bg-[#fdd6ba] text-[#333d4b]"} duration-300  hover:cursor-pointer`}
                                     onClick={() => handleOrderDetails(options.name, category)}
                                 >
-                                    <AccordionDetails className="font-fraunces">
+                                    <AccordionDetails className="font-fraunces  text-[1.5rem] font-black">
                                         {options.name}
                                     </AccordionDetails>
                                     <AccordionDetails>{options.content}</AccordionDetails>
