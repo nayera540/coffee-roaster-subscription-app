@@ -31,7 +31,7 @@ function PlanPage() {
             {/* End Steps Section */}
 
             {/* Start Order Form Section */}
-            <section>
+            <section className="pb-[10em]">
                 <OrderForm />
             </section>
             {/* End Order Form Section */}

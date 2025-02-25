@@ -4,7 +4,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useReducer } from "react";
+import { useReducer, useRef } from "react";
 
 const order_options = {
     preference: {
@@ -144,9 +144,17 @@ function formatKey(key) {
 
 function OrderForm() {
     const [state, dispatch] = useReducer(reducer, initialState);
+    const accordionRefs = useRef({});
 
     function handleAccordion(key) {
         dispatch({ type: "toggle_accordion", payload: key });
+
+        setTimeout(() => {
+            accordionRefs.current[key]?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }, 100);
     }
 
     function handleOrderDetails(name, category) {
@@ -157,15 +165,15 @@ function OrderForm() {
     }
 
     return (
-        <div className="order-container flex lg:flex-nowrap flex-wrap w-full">
-            <div className="lg:w-3/12 lg:block hidden options-headers">
+        <div className="order-container flex lg:flex-nowrap gap-[8rem] flex-wrap w-full">
+            <div className="lg:w-[15%] lg:sticky lg:top-[50px] lg:block hidden h-fit max-h-[80vh] overflow-y-auto options-headers">
                 {Object.keys(order_options).map((key, index) => (
                     <p
                         key={key}
-                        className={`option-title hover:cursor-pointer`}
+                        className={`option-title hover:cursor-pointer font-fraunces font-black ${state.accordionOpen.includes(key)? "text-[#83888f]" : "text-[#d5d5d4]"} text-[1.7rem] border-b-[1px] my-[1.7rem] pb-[1rem]`}
                         onClick={() => handleAccordion(key)}
                     >
-                        <span className="option-number">
+                        <span className="option-number mr-[1.7rem]">
                             {String(index + 1).padStart(2, "0")}
                         </span>
                         {formatKey(key)}
@@ -176,6 +184,7 @@ function OrderForm() {
                 {Object.keys(order_options).map((category) => (
                     <Accordion
                         key={category}
+                        ref={(el) => (accordionRefs.current[category] = el)}
                         className="!bg-transparent !shadow-none !border-none !static"
                         expanded={state.accordionOpen.includes(category)}
                         onChange={() => handleAccordion(category)}
@@ -190,7 +199,7 @@ function OrderForm() {
                         >
                             <Typography
                                 component="span"
-                                className={`!font-fraunces !font-black !text-[3rem]  ${state.accordionOpen.includes(category)
+                                className={`!font-fraunces !font-black md:!text-[3rem] !text-[2.4rem]  ${state.accordionOpen.includes(category)
                                         ? "text-[#83888f]"
                                         : "text-[#d5d5d4]"
                                     }`}
@@ -198,11 +207,11 @@ function OrderForm() {
                                 {order_options[category].question}
                             </Typography>
                         </AccordionSummary>
-                        <div className="option-details flex gap-10">
+                        <div className="option-details flex md:flex-row flex-col gap-10">
                             {order_options[category].options.map((options, index) => (
                                 <div
                                     key={index}
-                                    className={`options-content flex flex-col rounded-md py-[2rem] px-[1.75rem] h-[16rem] max-w-[20rem] ${state.selectedOptions[category] === options.name
+                                    className={`options-content flex flex-col md:items-start items-center rounded-md py-[2rem] px-[1.75rem] md:h-[16rem] h-fit w-full md:max-w-fit ${state.selectedOptions[category] === options.name
                                             ? "bg-[#0e8784] text-white"
                                             : "bg-[#f4f1eb] hover:bg-[#fdd6ba] text-[#333d4b]"
                                         } duration-300  hover:cursor-pointer`}
@@ -217,7 +226,7 @@ function OrderForm() {
                         </div>
                     </Accordion>
                 ))}
-                <div className="order_summary">
+                <div className={`order_summary`}>
                     <p>order summary</p>
                     <p>
                         "I drink my coffee as{" "}
