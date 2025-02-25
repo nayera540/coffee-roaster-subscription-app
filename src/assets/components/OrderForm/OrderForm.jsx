@@ -202,7 +202,10 @@ function OrderForm() {
                             {order_options[category].options.map((options, index) => (
                                 <div
                                     key={index}
-                                    className={`options-content flex flex-col rounded-md py-[2rem] px-[1.75rem] h-[16rem] max-w-[20rem] ${state.selectedOptions[category] === options.name? "bg-[#0e8784] text-white": "bg-[#f4f1eb] hover:bg-[#fdd6ba] text-[#333d4b]"} duration-300  hover:cursor-pointer`}
+                                    className={`options-content flex flex-col rounded-md py-[2rem] px-[1.75rem] h-[16rem] max-w-[20rem] ${state.selectedOptions[category] === options.name
+                                            ? "bg-[#0e8784] text-white"
+                                            : "bg-[#f4f1eb] hover:bg-[#fdd6ba] text-[#333d4b]"
+                                        } duration-300  hover:cursor-pointer`}
                                     onClick={() => handleOrderDetails(options.name, category)}
                                 >
                                     <AccordionDetails className="font-fraunces  text-[1.5rem] font-black">
