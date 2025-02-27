@@ -1,10 +1,10 @@
 import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useReducer, useRef } from "react";
+import styles from "./styles.module.scss";
+import Button from "../Button/Button";
 
 const order_options = {
     preference: {
@@ -142,6 +142,10 @@ function formatKey(key) {
         .replace(/^./, (str) => str.toUpperCase());
 }
 
+function areAllOptionsSelected(options){
+    return Object.values(options).every(value => value !== null);
+}
+
 function OrderForm() {
     const [state, dispatch] = useReducer(reducer, initialState);
     const accordionRefs = useRef({});
@@ -170,7 +174,7 @@ function OrderForm() {
                 {Object.keys(order_options).map((key, index) => (
                     <p
                         key={key}
-                        className={`option-title hover:cursor-pointer font-fraunces font-black ${state.accordionOpen.includes(key)? "text-[#83888f]" : "text-[#d5d5d4]"} text-[1.7rem] border-b-[1px] my-[1.7rem] pb-[1rem]`}
+                        className={`option-title hover:cursor-pointer font-fraunces font-black ${state.accordionOpen.includes(key) ? "text-[#83888f]" : "text-[#d5d5d4]"} text-[1.4rem] border-b-[1px] my-[1.7rem] pb-[1rem]`}
                         onClick={() => handleAccordion(key)}
                     >
                         <span className="option-number mr-[1.7rem]">
@@ -200,8 +204,8 @@ function OrderForm() {
                             <Typography
                                 component="span"
                                 className={`!font-fraunces !font-black md:!text-[3rem] !text-[2.4rem]  ${state.accordionOpen.includes(category)
-                                        ? "text-[#83888f]"
-                                        : "text-[#d5d5d4]"
+                                    ? "text-[#83888f]"
+                                    : "text-[#d5d5d4]"
                                     }`}
                             >
                                 {order_options[category].question}
@@ -212,8 +216,8 @@ function OrderForm() {
                                 <div
                                     key={index}
                                     className={`options-content flex flex-col md:items-start items-center rounded-md py-[2rem] px-[1.75rem] md:h-[16rem] h-fit w-full md:max-w-fit ${state.selectedOptions[category] === options.name
-                                            ? "bg-[#0e8784] text-white"
-                                            : "bg-[#f4f1eb] hover:bg-[#fdd6ba] text-[#333d4b]"
+                                        ? "bg-[#0e8784] text-white"
+                                        : "bg-[#f4f1eb] hover:bg-[#fdd6ba] text-[#333d4b]"
                                         } duration-300  hover:cursor-pointer`}
                                     onClick={() => handleOrderDetails(options.name, category)}
                                 >
@@ -226,9 +230,9 @@ function OrderForm() {
                         </div>
                     </Accordion>
                 ))}
-                <div className={`order_summary`}>
-                    <p>order summary</p>
-                    <p>
+                <div className={`order_summary ${styles["order_summary"]}`}>
+                    <p className="summary-title font-barlow uppercase font-thin text-[#fff] opacity-[0.5037] mb-[1rem]">order summary</p>
+                    <p className={`summary-section ${styles["summary-section"]} font-fraunces font-black text-[2rem]`}>
                         "I drink my coffee as{" "}
                         <span>
                             {state.selectedOptions.preference
@@ -259,8 +263,13 @@ function OrderForm() {
                                 ? state.selectedOptions.deliveries
                                 : "_____"}
                         </span>
-                        . "
+                        ."
                     </p>
+                </div>
+                <div className="order-btn mt-[2rem] flex justify-end">
+                    <Button isDisabled={!areAllOptionsSelected(state.selectedOptions)}>Create My Plan!</Button>
+                    {console.log(areAllOptionsSelected(state.selectedOptions))
+                    }
                 </div>
             </div>
         </div>

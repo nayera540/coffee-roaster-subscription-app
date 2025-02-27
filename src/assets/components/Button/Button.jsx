@@ -1,8 +1,8 @@
 import styles from './Button.module.scss';
 
-function Button({children}) {
+function Button({children, isDisabled = false}) {
     return (
-        <button className={`btn ${styles["btn"]} font-fraunces`}>
+        <button className={`btn ${styles["btn"]} font-fraunces`} disabled={isDisabled}>
             {children}
         </button>
     )

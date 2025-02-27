@@ -1,0 +1,16 @@
+.order_summary {
+  background-image: url("/public/images/plan/desktop/bg-order-summary.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-top: 3rem;
+  padding: 3.5rem 2.5rem;
+}
+
+.summary-section {
+  color: #fff;
+}
+.summary-section span {
+  color: rgb(14, 135, 132);
+}/*# sourceMappingURL=styles.module.css.map */

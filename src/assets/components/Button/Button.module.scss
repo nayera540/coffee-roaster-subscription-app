@@ -15,4 +15,11 @@
     &:hover{
         background-color: rgb(39, 109, 107);
     }
+
+    &:disabled {
+        background-color: rgb(226, 222, 219); 
+        color: #fefcf7;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
 }
