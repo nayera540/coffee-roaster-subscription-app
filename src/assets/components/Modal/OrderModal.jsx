@@ -1,41 +1,58 @@
-import Modal from '@mui/joy/Modal';
-import ModalClose from '@mui/joy/ModalClose';
-import Typography from '@mui/joy/Typography';
-import Sheet from '@mui/joy/Sheet';
-import { useState } from 'react';
+import Modal from "@mui/joy/Modal";
+import ModalClose from "@mui/joy/ModalClose";
+import Typography from "@mui/joy/Typography";
+import Sheet from "@mui/joy/Sheet";
+import { useState } from "react";
 
-function OrderModal() {
-    const [open, setOpen] = useState(false);
-
+function OrderModal({ openModal, setOpenModal }) {
     return (
         <Modal
             aria-labelledby="modal-title"
             aria-describedby="modal-desc"
-            open={open}
-            onClose={() => setOpen(false)}
-            sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+            open={openModal}
+            onClose={() => setOpenModal(false)}
+            sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
         >
             <Sheet
-                variant="outlined"
-                sx={{ maxWidth: 500, borderRadius: 'md', p: 3, boxShadow: 'lg' }}
+                variant="plain"
+                sx={{ maxWidth: 680, borderRadius: "md", boxShadow: "md" }}
             >
-                <ModalClose variant="plain" sx={{ m: 1 }} />
                 <Typography
                     component="h2"
                     id="modal-title"
                     level="h4"
                     textColor="inherit"
-                    sx={{ fontWeight: 'lg', mb: 1 }}
+                    className="!font-fraunces bg-[#2c343e] !text-[#fff] !text-[2.7rem] rounded-t-md px-[3.5rem] py-[3rem] !font-black"
                 >
-                    This is the modal title
+                    Order Summary
                 </Typography>
-                <Typography id="modal-desc" textColor="text.tertiary">
-                    Make sure to use <code>aria-labelledby</code> on the modal dialog with an
-                    optional <code>aria-describedby</code> attribute.
+                <Typography
+                    id="modal-desc"
+                    textColor="text.tertiary"
+                    className="pt-[2.6rem] px-[3.5rem] pb-[3.4rem]"
+                >
+                    <div className="close-container flex justify-end">
+                        <p
+                            className="close-btn flex flex-row font-fraunces text-[#2c343e] font-black cursor-pointer"
+                            onClick={() => setOpenModal(false)}
+                        >
+                            <img
+                                src="/images/editIcon.svg"
+                                alt="edit icon"
+                                className="w-[16px] h-[16px] mt-[3px] mr-[8px]"
+                            />
+                            Close to Edit
+                        </p>
+                    </div>
+                    <p className="font-barlow text-[#333d4b] font-thin leading-[1.6rem] opacity-[0.8] text-justify pt-[7px]">
+                        Is this correct? You can proceed to checkout or go back to plan
+                        selection if something is off. Subscription discount codes can also
+                        be redeemed at the checkout.
+                    </p>
                 </Typography>
             </Sheet>
         </Modal>
-    )
+    );
 }
 
 export default OrderModal;

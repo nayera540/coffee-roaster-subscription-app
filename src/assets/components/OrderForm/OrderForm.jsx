@@ -2,9 +2,10 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import { useReducer, useRef } from "react";
+import { useReducer, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 import Button from "../Button/Button";
+import OrderModal from "../Modal/OrderModal";
 
 const order_options = {
     preference: {
@@ -147,6 +148,7 @@ function areAllOptionsSelected(options){
 }
 
 function OrderForm() {
+    const [openModal, setOpenModal] = useState(false);
     const [state, dispatch] = useReducer(reducer, initialState);
     const accordionRefs = useRef({});
 
@@ -267,11 +269,10 @@ function OrderForm() {
                     </p>
                 </div>
                 <div className="order-btn mt-[2rem] flex justify-end">
-                    <Button isDisabled={!areAllOptionsSelected(state.selectedOptions)}>Create My Plan!</Button>
-                    {console.log(areAllOptionsSelected(state.selectedOptions))
-                    }
+                    <Button isDisabled={!areAllOptionsSelected(state.selectedOptions)} onClick={() => setOpenModal(true)}>Create My Plan!</Button>
                 </div>
             </div>
+            <OrderModal openModal={openModal} setOpenModal={setOpenModal}/>
         </div>
     );
 }
