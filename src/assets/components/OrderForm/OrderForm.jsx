@@ -90,18 +90,22 @@ const order_options = {
         options: [
             {
                 name: "Every week",
-                content: "$7.20 per shipment. Includes free first-class shipping.",
+                price: 7.20,
+                content: " per shipment. Includes free first-class shipping.",
             },
             {
                 name: "Every 2 weeks",
-                content: "$9.60 per shipment. Includes free priority shipping.",
+                price: 9.60,
+                content: " per shipment. Includes free priority shipping.",
             },
             {
                 name: "Every month",
-                content: "$12.00 per shipment. Includes free priority shipping.",
+                price: 12.00,
+                content: " per shipment. Includes free priority shipping.",
             },
         ],
     },
+
 };
 
 const initialState = {
@@ -115,6 +119,25 @@ const initialState = {
     },
 };
 
+const deliveryPrices = {
+    "250g": {
+        "Every week": 7.20,
+        "Every 2 weeks": 9.60,
+        "Every month": 12.00
+    },
+    "500g": {
+        "Every week": 13.00,
+        "Every 2 weeks": 17.50,
+        "Every month": 22.00
+    },
+    "1000g": {
+        "Every week": 22.00,
+        "Every 2 weeks": 32.00,
+        "Every month": 42.00
+    }
+};
+
+
 function reducer(state = initialState, action) {
     switch (action.type) {
         case "toggle_accordion":
@@ -124,14 +147,23 @@ function reducer(state = initialState, action) {
                     ? state.accordionOpen.filter((key) => key !== action.payload)
                     : [...state.accordionOpen, action.payload],
             };
-        case "add_order_details":
+        case "add_order_details": {
+            const { category, name } = action.payload;
+            let updatedOptions = { ...state.selectedOptions, [category]: name };
+            if(category === "quantity"){
+                order_options.deliveries.options = Object.keys(deliveryPrices[name]).map(freq => ({
+                    name: freq,
+                    price: deliveryPrices[name][freq],
+                    content: " per shipment. Includes free shipping."
+                }));
+            }
             return {
                 ...state,
-                selectedOptions: {
-                    ...state.selectedOptions,
-                    [action.payload.category]: action.payload.name,
-                },
+                selectedOptions: updatedOptions
             };
+        }
+        case "clear_order":
+            return state = initialState;
         default:
             return state;
     }
@@ -143,7 +175,7 @@ function formatKey(key) {
         .replace(/^./, (str) => str.toUpperCase());
 }
 
-function areAllOptionsSelected(options){
+function areAllOptionsSelected(options) {
     return Object.values(options).every(value => value !== null);
 }
 
@@ -226,7 +258,7 @@ function OrderForm() {
                                     <AccordionDetails className="font-fraunces  text-[1.5rem] font-black">
                                         {options.name}
                                     </AccordionDetails>
-                                    <AccordionDetails>{options.content}</AccordionDetails>
+                                    <AccordionDetails>{options.price? `$${options.price.toFixed(2)} ${options.content}`: options.content}</AccordionDetails>
                                 </div>
                             ))}
                         </div>
@@ -272,7 +304,7 @@ function OrderForm() {
                     <Button isDisabled={!areAllOptionsSelected(state.selectedOptions)} onClick={() => setOpenModal(true)}>Create My Plan!</Button>
                 </div>
             </div>
-            <OrderModal openModal={openModal} setOpenModal={setOpenModal}/>
+            <OrderModal openModal={openModal} setOpenModal={setOpenModal} dispatch={dispatch} />
         </div>
     );
 }

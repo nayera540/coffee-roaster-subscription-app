@@ -3,8 +3,13 @@ import ModalClose from "@mui/joy/ModalClose";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import { useState } from "react";
+import Button from "../Button/Button";
 
-function OrderModal({ openModal, setOpenModal }) {
+function OrderModal({ openModal, setOpenModal, dispatch }) {
+    function checkOutOrder(){
+        dispatch({type: "clear_order"});
+        setOpenModal(false);
+    }
     return (
         <Modal
             aria-labelledby="modal-title"
@@ -49,6 +54,10 @@ function OrderModal({ openModal, setOpenModal }) {
                         selection if something is off. Subscription discount codes can also
                         be redeemed at the checkout.
                     </p>
+                    <div className="checkout-container flex flex-row">
+                        <p>price</p>
+                        <Button onClick={() => checkOutOrder()}>Checkout</Button>
+                    </div>
                 </Typography>
             </Sheet>
         </Modal>
