@@ -1,0 +1,10 @@
+@use "../../styles/variables" as *;
+
+
+.scroll-top-btn{
+    background-color: $primary-color;
+    border-radius: 50%;
+    padding: 10px;
+    z-index: 2;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s;
+}

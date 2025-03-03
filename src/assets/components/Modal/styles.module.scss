@@ -1,0 +1,9 @@
+@use "../../styles/variables" as *;
+
+.summary-section{
+    color: $third-text-color;
+
+    span{
+        color: $primary-color;
+    }
+}

@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"ScrollTopButton.module.css"}
+{"version":3,"sources":["ScrollTopButton.module.scss","../../styles/_variables.scss","ScrollTopButton.module.css"],"names":[],"mappings":"AAGA;EACI,mCCHY;EDIZ,kBAAA;EACA,aAAA;EACA,UAAA;EACA,qDAAA;AEFJ","file":"ScrollTopButton.module.css"}

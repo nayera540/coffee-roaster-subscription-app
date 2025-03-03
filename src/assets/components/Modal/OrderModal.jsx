@@ -4,12 +4,30 @@ import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import { useState } from "react";
 import Button from "../Button/Button";
+import styles from "./styles.module.scss";
 
-function OrderModal({ openModal, setOpenModal, dispatch }) {
-    function checkOutOrder(){
-        dispatch({type: "clear_order"});
+function OrderModal({ openModal, setOpenModal, dispatch, selectedOptions, orderOptions }) {
+    function checkOutOrder() {
+        dispatch({ type: "clear_order" });
         setOpenModal(false);
     }
+
+    function calculateOrder() {
+        switch(selectedOptions.deliveries){
+            case "Every week":
+                return orderOptions.deliveries.options[0].price * 4;
+            case "Every 2 weeks":
+                return orderOptions.deliveries.options[1].price * 2;
+            case "Every month":
+                return orderOptions.deliveries.options[2].price;
+            default:
+                return 0;
+        }
+        console.log(orderOptions.deliveries.options[0].price);
+        
+    }
+
+
     return (
         <Modal
             aria-labelledby="modal-title"
@@ -20,7 +38,7 @@ function OrderModal({ openModal, setOpenModal, dispatch }) {
         >
             <Sheet
                 variant="plain"
-                sx={{ maxWidth: 680, borderRadius: "md", boxShadow: "md" }}
+                sx={{ maxWidth: 580, borderRadius: "md", boxShadow: "md" }}
             >
                 <Typography
                     component="h2"
@@ -49,13 +67,48 @@ function OrderModal({ openModal, setOpenModal, dispatch }) {
                             Close to Edit
                         </p>
                     </div>
-                    <p className="font-barlow text-[#333d4b] font-thin leading-[1.6rem] opacity-[0.8] text-justify pt-[7px]">
-                        Is this correct? You can proceed to checkout or go back to plan
-                        selection if something is off. Subscription discount codes can also
-                        be redeemed at the checkout.
-                    </p>
-                    <div className="checkout-container flex flex-row">
-                        <p>price</p>
+                    <div>
+                        <p className={`summary-section ${styles["summary-section"]} font-fraunces font-black text-[2rem]`}>
+                            "I drink my coffee as{" "}
+                            <span>
+                                {selectedOptions.preference
+                                    ? selectedOptions.preference
+                                    : "_____"}
+                            </span>
+                            , with a{" "}
+                            <span>
+                                {selectedOptions.beanType
+                                    ? selectedOptions.beanType
+                                    : "_____"}
+                            </span>
+                            .{" "}
+                            <span>
+                                {selectedOptions.quantity
+                                    ? selectedOptions.quantity
+                                    : "_____"}
+                            </span>{" "}
+                            ground ala{" "}
+                            <span>
+                                {selectedOptions.grindOption
+                                    ? selectedOptions.grindOption
+                                    : "_____"}
+                            </span>
+                            , sent to me{" "}
+                            <span>
+                                {selectedOptions.deliveries
+                                    ? selectedOptions.deliveries
+                                    : "_____"}
+                            </span>
+                            ."
+                        </p>
+                        <p className="font-barlow text-[#333d4b] font-thin leading-[1.6rem] opacity-[0.8] text-justify pt-[7px]">
+                            Is this correct? You can proceed to checkout or go back to plan
+                            selection if something is off. Subscription discount codes can also
+                            be redeemed at the checkout.
+                        </p>
+                    </div>
+                    <div className="checkout-container flex md:flex-row flex-col mt-[1.5rem]">
+                        <p className="text-[#333d4b] font-fraunces text-[2.4rem] font-black mr-[1.5rem]">${calculateOrder().toFixed(2)}/mo</p>
                         <Button onClick={() => checkOutOrder()}>Checkout</Button>
                     </div>
                 </Typography>

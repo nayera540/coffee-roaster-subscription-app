@@ -2,7 +2,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import { useReducer, useRef, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 import Button from "../Button/Button";
 import OrderModal from "../Modal/OrderModal";
@@ -202,6 +202,7 @@ function OrderForm() {
         });
     }
 
+
     return (
         <div className="order-container flex lg:flex-nowrap gap-[8rem] flex-wrap w-full">
             <div className="lg:w-[15%] lg:sticky lg:top-[50px] lg:block hidden h-fit max-h-[80vh] overflow-y-auto options-headers">
@@ -220,7 +221,7 @@ function OrderForm() {
             </div>
             <div className="lg:w-9/12 w-full">
                 {Object.keys(order_options).map((category) => (
-                    <Accordion
+                    <Accordion 
                         key={category}
                         ref={(el) => (accordionRefs.current[category] = el)}
                         className="!bg-transparent !shadow-none !border-none !static"
@@ -304,7 +305,7 @@ function OrderForm() {
                     <Button isDisabled={!areAllOptionsSelected(state.selectedOptions)} onClick={() => setOpenModal(true)}>Create My Plan!</Button>
                 </div>
             </div>
-            <OrderModal openModal={openModal} setOpenModal={setOpenModal} dispatch={dispatch} />
+            <OrderModal openModal={openModal} setOpenModal={setOpenModal} dispatch={dispatch} selectedOptions={state.selectedOptions} orderOptions={order_options}/>
         </div>
     );
 }
